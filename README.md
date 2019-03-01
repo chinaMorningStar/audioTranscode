@@ -46,23 +46,31 @@ make install
 4.导入转码工具jar包，jar包下载地址:
   链接: https://pan.baidu.com/s/1Ayt_5UJbT_gVEKkD9RGlHQ 提取码: s823 
   
+  
 下载后在maven中导入jar包   jar包为  jave-1.0.2.jar
+
                 maven本地导入方法为   cmd 命令
+                
                 mvn install:install-file 
-                    -Dfile=E:\jave-1.0.2.jar    //包的输入路径 
+                    -Dfile=E:\jave-1.0.2.jar    
                     -DgroupId=jave 
                     -DartifactId=jave 
                     -Dversion=1.0.2 
                     -Dpackaging=jar 
-                //执行完成后 jar 会放入maven 仓库中  maven/repository/jave/jave/1.0.2/
+                
+                执行完成后 jar 会放入maven 仓库中  maven/repository/jave/jave/1.0.2/
+                
                 pom.xml文件配置为
+                
                 <dependency>
                     <groupId>jave</groupId>
                     <artifactId>jave</artifactId>
                     <version>1.0.2</version>
                  </dependency>
                  
+                 
   5.编写转码工具类
+  
   public static void MavToMp3(String sources, String desFileName) {
         List<String> commend = new ArrayList<String>();
         commend.add("/usr/local/bin/ffmpeg");
@@ -77,7 +85,7 @@ make install
         StringBuffer test = new StringBuffer();
         for (int i = 0; i < commend.size(); i++)
             test.append(commend.get(i) + " ");
-        System.out.println(test);
+      
         ProcessBuilder builder = new ProcessBuilder();
         builder.command(commend);
         try {
@@ -92,6 +100,8 @@ make install
         }
         log.info("音频转换成功");
     }
+    
+   注：log为Slf4j
                
 
 
