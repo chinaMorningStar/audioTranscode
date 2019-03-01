@@ -89,6 +89,8 @@ make install
   
   public static void MavToMp3(String sources, String desFileName) {
   
+       //sources为源文件路径，desFileName为转码后文件路径，注意是完整路径带上文件扩展名
+  
         List<String> commend = new ArrayList<String>();
         
         commend.add("/usr/local/bin/ffmpeg");
