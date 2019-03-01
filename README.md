@@ -72,34 +72,62 @@ make install
   5.编写转码工具类
   
   public static void MavToMp3(String sources, String desFileName) {
+  
         List<String> commend = new ArrayList<String>();
+        
         commend.add("/usr/local/bin/ffmpeg");
+        
         commend.add("-i");
+        
         commend.add(sources);
+        
         commend.add("-f");
+        
         commend.add("mp3");
+        
         commend.add("-acodec");
+        
         commend.add("libmp3lame");
+        
         commend.add("-y");
+        
         commend.add(desFileName);
+        
         StringBuffer test = new StringBuffer();
+        
         for (int i = 0; i < commend.size(); i++)
+        
             test.append(commend.get(i) + " ");
+            
       
         ProcessBuilder builder = new ProcessBuilder();
+        
         builder.command(commend);
+        
         try {
+        
             builder.redirectErrorStream(true);
+            
             Process process = builder.start();
+            
             if (process.isAlive()) {
+            
                 log.info("转码进行中" + System.currentTimeMillis());
+                
             }
+            
         } catch (IOException e) {
+        
             // TODO Auto-generated catch block
+            
             e.printStackTrace();
+            
         }
+        
         log.info("音频转换成功");
+        
     }
+    
     
    注：log为Slf4j
                
