@@ -61,6 +61,7 @@ make install
                     <artifactId>jave</artifactId>
                     <version>1.0.2</version>
                  </dependency>
+                 
   5.编写转码工具类
   public static void MavToMp3(String sources, String desFileName) {
         List<String> commend = new ArrayList<String>();
